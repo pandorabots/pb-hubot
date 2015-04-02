@@ -1,0 +1,28 @@
+{
+  "name": "pb-hubot",
+  "version": "0.0.1",
+  "description": "A Hubot Script for Pandorabot",
+  "keywords": [
+    "hubot",
+    "hubot-scripts",
+    "Pandorabots",
+    "NLP",
+    "AI"
+  ],
+  "homepage": "http://github.com/pandorabots/pb-hubot/",
+  "bugs": {
+    "url": "http://github.com/pandorabots/pb-hubot/issues"
+  },
+  "license": "BSD",
+  "main": "index.coffee",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/pandorabots/pb-hubot.git"
+  },
+  "dependencies": {
+    "coffee-script": ">=1.6.0",
+    "nconf": ">=0.7.1",
+    "request": ">=2.51.0"
+  },
+  "author": "yyconn <conn@conn.jp>"
+}
