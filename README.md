@@ -1,6 +1,6 @@
 # pb-hubot
 
-This script allows you to integrate a hosted Pandorabot with Hubot, for deployment on Heroku and Slack.
+This script allows you to integrate a hosted Pandorabot with Hubot, for deployment on Heroku and Slack. The script listens for all inputs directed at Hubot (via `Hubot.respond()`), and forwards them to the Pandorabots API.
 
 ### Prerequisites
 
@@ -90,27 +90,17 @@ This script allows you to integrate a hosted Pandorabot with Hubot, for deployme
         (e.g. Debian based Linux)
         $ sudo apt-get install redis-server
 
-1. Add environment variables for Pandorabots into local OS. These must be identical to Heroku environment variables.
+2. Add environment variables for Pandorabots into local OS. These must be identical to Heroku environment variables.
 
         myhubot$ export app_id=140XXXXXXXXXX
         myhubot$ export user_key=e64XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
         myhubot$ export botname=mypandorabot
 
-1. Test to talk with Hubot bot. You can talk with the Hubot bot locally by using shell adapter. Push enter key to show `Hubot>` prompt, then say `hubot ping` so the bot responses `PONG`. Errors are mostly ignorable here.
+3. Test your bot. You can talk with the Hubot bot locally by using shell adapter. Push enter key to show `Hubot>` prompt, then say `hubot`, followed by an input your Pandorabot will provide a response to:
 
         myhubot$ bin/hubot
         ...
         Hubot>
-        Hubot> hubot ping
-        PONG
-        Hubot> ^D
-
-1. Test to talk with Pandorabots bot. You can talk with Pandorabts bot through Hubot bot. By default, you need to say `pb` after Hubot name `hubot` so as to redirect an inquiry to Pandorabots bot.
-
-        myhubot$ bin/hubot
-        ...
-        Hubot>
-        Hubot> hubot pb gender?
-        Hubot> I am female.
-        Hubot> ^D
+        Hubot> hubot Hello
+        Hubot> Hi there!
 
