@@ -1,34 +1,29 @@
 # pb-hubot
 
-## Quick Instructions: Pandorabots staying in Slack, powered by Hubot on Heroku.
-
-This is a Pandorabots-with-Slack-specific version of the more general [Getting Started With Hubot](https://hubot.github.com/docs/).
-
-*Note: You will need both a* `user_key` *and* `app_id`*, which you can register for at the [Pandorabots Developer Portal](http://developer.pandorabots.com). In addition you will need your own bot named* `botname` *associated with the account.*
+This script allows you to integrate a hosted Pandorabot with Hubot, for deployment on Heroku and Slack.
 
 ### Prerequisites
 
- * Heroku account
- * Slack account
- * Pandorabots account and a Pandorabots bot
- * Local OS environment such as Linux, OS X, Windows
- * Git installed on Local OS
- * Heroku Toolbelt installed on Local OS
- * Node.js/npm installed on Local OS
+ * [Heroku](http://heroku.com) account
+ * [Slack](http://slack.com) team and personal account
+ * [AIaaS](http://chatbots.io) application and bot credentials
+ * Git
+ * [Heroku Toolbelt](https://toolbelt.heroku.com/)
+ * [Node.js](http://nodejs.org) and [npm](http://npmjs.org)
 
 ### Installation instructions
 
-1. Install Hubot with Yeoman Generator and Hubot generator into local OS.
+1. Install Yeoman globally on your machine, along with the Hubot generator for Yeoman:
 
         $ npm install -g yo generator-hubot
 
-1. Create Hubot instance on local OS. Create a directory for the instance, then run *Yeoman Generator for Hubot* in the directory. In this case we choose `myhubot` as Hubot name.
+2. Create a new directory for your Hubot, and run the generator with `yo`:
 
         $ mkdir myhubot
         $ cd myhubot
         myhubot$ yo hubot
 
-1. Answer to the generator's questions as below. In this case we choose `slack` as bot adapter.
+3. Complete the initialization prompts. Make sure to select `slack` as your Bot adapter:
 
         ? Owner: your-name <your-name@your-domain.com>
         ? Bot name: myhubot
@@ -36,11 +31,11 @@ This is a Pandorabots-with-Slack-specific version of the more general [Getting S
         ? Bot adapter: (campfire) slack
         ? Bot adapter: slack
 
-1. Install the `pb-hubot` module with --save option.
+4. Install the `pb-hubot` module to your Hubot project:
 
         myhubot$ npm install pb-hubot --save
 
-1. Add `pb-hubot` to `external-scripts.json`.
+5. Add `pb-hubot` to `external-scripts.json`:
 
         [
           "pb-hubot",
@@ -49,35 +44,35 @@ This is a Pandorabots-with-Slack-specific version of the more general [Getting S
 
    *Note: You may add another Hubot scripts with same manner here.*
 
-1. Turn the directory into Git working directory.
+6. Create a new git repository in your Hubot directory:
 
         myhubot$ git init
         myhubot$ git add .
         myhubot$ git commit -m “Initial commit”
 
-1. Create Heroku App for Hubot instance. You need to choose unique name for Heroku app name here. In this case we choose `myhubotapp999`.
+7. Create a new Heroku applicaiton:
 
-        myhubot$ heroku create myhubotapp999
-        Creating myhubotapp999... done, stack is cedar-XX
+        myhubot$ heroku create 
+        Creating mystic-meadow-229... done, stack is cedar-XX
         ...
 
-1. Add Heroku add-ons for Hubot. At least you need to add add-ons `redistogo` as `nano` plan for free. Hubot requires Redis Server for its persistent memory.
+8. Configure the `redistogo` add-on. Hubot requires a Redis server for persistent memory. The `nano` plan is free:
 
         myhubot$ heroku addons:add redistogo:nano
 
-1. Add Heroku environment variables for Pandorabots
+9. Set Heroku environment variables for Pandorabots (`app_id`, `user_key`, `botname`):
 
         myhubot$ heroku config:set app_id=140XXXXXXXXXX
         myhubot$ heroku config:set user_key=e64XXXXXXXXXXXXXXXXXXXXXXXXXXX
         myhubot$ heroku config:set botname=mypandorabot
 
-1. Add Heroku environment variable for Slack API token. Login to Slack then move to Integrations page, where you can add Hubot Integration. At this point you also get `HUBOT_SLACK_TOKEN` value.
+10. Set Heroku environment variable for Slack API token. To obtain this, log in to Slack, and go to the Integrations page. Here, you can add the Hubot integration, and retrieve the token:
 
         myhubot$ heroku config:set HUBOT_SLACK_TOKEN=xoxb-1234567890-XXXXXXXXXXXXXXXXXXX
 
-1. Add Heroku environment variable for Keep-Alive so as to prevent Hubot from sleeping.
+11. Add Heroku environment variable for Keep-Alive so as to prevent Hubot from sleeping.
 
-        myhubot$ heroku config:set HUBOT_HEROKU_KEEPALIVE_URL=https://myhubotapp999.herokuapp.com/
+        myhubot$ heroku config:set HUBOT_HEROKU_KEEPALIVE_URL=https://your-heroku-app.herokuapp.com/
 
    *Note: You may add another Heroku environment variables with same manner here.*
 
