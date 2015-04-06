@@ -96,11 +96,11 @@ This script allows you to integrate a hosted Pandorabot with Hubot, for deployme
         myhubot$ export user_key=e64XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
         myhubot$ export botname=mypandorabot
 
-3. Test your bot. You can talk with the Hubot bot locally by using shell adapter. Push enter key to show `Hubot>` prompt, then say `hubot`, followed by an input your Pandorabot will provide a response to:
+3. Test your bot. You can talk with the Hubot bot locally by using shell adapter. Push enter key to show `Hubot>` prompt, then say `hubot pb`, followed by an input your Pandorabot will provide a response to:
 
         myhubot$ bin/hubot
         ...
         Hubot>
-        Hubot> hubot Hello
+        Hubot> hubot pb Hello
         Hubot> Hi there!
 
